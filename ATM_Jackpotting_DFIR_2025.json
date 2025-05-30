@@ -1,50 +1,89 @@
 {
   "name": "ATM Jackpotting DFIR 2025",
-  "version": "4.5",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "description": "MITRE ATT&CK layer for ATM jackpotting incident investigated by Thai Cyber Police, 2025. Based on reported techniques involving physical access, malware (e.g., Ploutus.D), and black-box devices.",
   "domain": "enterprise-attack",
-  "description": "MITRE ATT&CK layer for ATM Jackpotting incidents, designed for DFIR in 2025. Covers techniques used in attacks involving malware (e.g., Ploutus, Jackpot) and hardware (e.g., Black Box, SIM Card cable). Focuses on 2025 Thailand incident involving Bulgarian suspect 'Ivan' using 'Jackpot' malware and SIM Card cable to disrupt internet signals and control ATMs ([Web:2], [X:0]), and US incidents in 2024 ([Web:13], [Web:22]). All techniques are sourced from referenced incidents or general ATM Jackpotting reports ([Web:6], [Web:7], [Web:15]).",
   "techniques": [
     {
-      "techniqueID": "T1078",
-      "tactic": "initial-access",
+      "techniqueID": "T1190",
+      "score": 100,
       "color": "#ff0000",
-      "comment": "Use of stolen master keys or endoscopes for physical access to ATMs, observed in Thailand 2025 ([Web:2], [X:0]) and US 2024 ([Web:13], [Web:15])."
+      "comment": "Attackers may exploit vulnerabilities in ATM software or network interfaces remotely, as seen in some jackpotting cases (e.g., Diebold Nixdorf attacks).",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Phishing emails used to compromise bank networks, enabling remote ATM access (e.g., Cosmos heist).",
+      "enabled": true
     },
     {
       "techniqueID": "T1059",
-      "tactic": "execution",
+      "score": 100,
       "color": "#ff0000",
-      "comment": "Malware (e.g., Ploutus.D, Jackpot) executes scripts to control cash dispenser via XFS API, as seen in Thailand 2025 with 'Jackpot' malware ([Web:2], [X:0]) and US 2024 with Ploutus.D ([Web:13], [Web:22])."
+      "comment": "Malware like Ploutus.D or Tyupkin uses command-line interfaces or scripts to issue cash dispense commands via ATM pin pad or software.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 80,
+      "color": "#ff9900",
+      "comment": "Malware may modify ATM boot processes for persistence, though specific evidence in Thai case is unclear.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1068",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Attackers switch ATMs to supervisor mode to gain control over cash dispensers, a common jackpotting technique.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Attackers remove evidence by disconnecting black-box devices or clearing logs to avoid detection.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1564",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Use of mineral oil or wax to block ATM cameras or tampering with logs to hide attack activities.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1119",
+      "score": 80,
+      "color": "#ff9900",
+      "comment": "Malware may collect transaction logs or cardholder data, though primary goal is cash dispensing.",
+      "enabled": true
     },
     {
       "techniqueID": "T1071",
-      "tactic": "command-and-control",
+      "score": 100,
       "color": "#ff0000",
-      "comment": "Malware communicates with C2 server via HTTP/HTTPS, used by groups like Carbanak and in US 2024 incidents ([Web:6], [Web:13], [Web:22])."
+      "comment": "Black-box devices communicate with attackers’ smartphones or servers to control ATM cash dispensers remotely.",
+      "enabled": true
     },
     {
-      "techniqueID": "T1090",
-      "tactic": "command-and-control",
-      "color": "#0000ff",
-      "comment": "Use of SIM Card cable or Black Box for remote control and network disruption, observed in Thailand 2025 with 'Ivan' ([Web:2], [X:0]) and US 2024 ([Web:7], [Web:13], [Web:22])."
+      "techniqueID": "T1485",
+      "score": 80,
+      "color": "#ff9900",
+      "comment": "Malware may corrupt ATM logs or software to cover tracks, though not explicitly reported in Thai case.",
+      "enabled": true
     },
     {
-      "techniqueID": "T1219",
-      "tactic": "command-and-control",
-      "color": "#0000ff",
-      "comment": "Remote control via SMS/Bluetooth, including potential Simjacker exploits, seen in Thailand 2025 ([Web:2], [Web:14], [X:0]) and US 2024 with Ploutus.D ([Web:20], [Web:22])."
-    },
-    {
-      "techniqueID": "T1562",
-      "tactic": "defense-evasion",
-      "color": "#0000ff",
-      "comment": "Disabling network communication to evade detection, including internet signal disruption via SIM Card cable in Thailand 2025 ([Web:2], [Web:9], [X:0])."
-    },
-    {
-      "techniqueID": "T1496",
-      "tactic": "impact",
+      "techniqueID": "T1491",
+      "score": 100,
       "color": "#ff0000",
-      "comment": "Hijacking ATM to dispense cash (Jackpotting), observed in Thailand 2025 with 'Ivan' ([Web:2], [X:0]) and US 2024 ([Web:13], [Web:22])."
+      "comment": "ATMs display 'Out of Service' to avoid suspicion during jackpotting attacks.",
+      "enabled": true
     }
   ],
   "gradient": {
@@ -55,11 +94,11 @@
   "legendItems": [
     {
       "color": "#ff0000",
-      "label": "High-frequency technique"
+      "label": "Confirmed Technique"
     },
     {
-      "color": "#0000ff",
-      "label": "Network disruption technique"
+      "color": "#ff9900",
+      "label": "Possible Technique"
     }
   ]
 }
