@@ -126,6 +126,12 @@
       "color": "#00ff00",
       "comment": "Ancillary: Corrupt ATM logs or software.",
       "enabled": true
+    },
+     {
+      "techniqueID": "T1496",
+      "tactic": "impact",
+      "color": "#ff0000",
+      "comment": "Hijacking ATM to dispense cash (Jackpotting), observed in Thailand 2025 with 'Ivan'."
     }
   ],
   "gradient": {
