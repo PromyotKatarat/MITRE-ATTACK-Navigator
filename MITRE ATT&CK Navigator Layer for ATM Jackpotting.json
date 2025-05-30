@@ -1,0 +1,78 @@
+//coment
+{
+  "name": "ATM Jackpotting Attack Layer",
+  "version": "4.5",
+  "domain": "enterprise-attack",
+  "description": "Layer showing MITRE ATT&CK techniques used in ATM Jackpotting attacks, based on observed tactics from malware (e.g., Jackpot, Ploutus) and hardware-based attacks (e.g., Black Box, SIM Card cable).",
+  "techniques": [
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "color": "#ff0000",
+      "comment": "Use of master keys or endoscopes to gain physical access to ATM internals."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "color": "#ff0000",
+      "comment": "Malware (e.g., Jackpot, Ploutus) executes scripts to control ATM cash dispenser."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "color": "#ff9900",
+      "comment": "Malware sets autostart execution to maintain access on ATM reboot."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "privilege-escalation",
+      "color": "#ff9900",
+      "comment": "Switching ATM to supervisor mode to gain control."
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "color": "#ff9900",
+      "comment": "Disabling security alerts or USB port locks."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "color": "#ff0000",
+      "comment": "Malware communicates with C2 server via HTTP/HTTPS."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "color": "#ff0000",
+      "comment": "Use of SIM Card cable or Black Box for remote control."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "color": "#ff9900",
+      "comment": "Deleting logs to hide attack traces."
+    },
+    {
+      "techniqueID": "T1496",
+      "tactic": "impact",
+      "color": "#ff0000",
+      "comment": "Hijacking ATM to dispense cash (Jackpotting)."
+    }
+  ],
+  "gradient": {
+    "colors": ["#ff6666", "#ff0000"],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "color": "#ff0000",
+      "label": "High-frequency technique"
+    },
+    {
+      "color": "#ff9900",
+      "label": "Supporting technique"
+    }
+  ]
+}
