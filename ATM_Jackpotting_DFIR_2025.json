@@ -5,63 +5,63 @@
     "navigator": "4.9",
     "layer": "4.5"
   },
-  "description": "MITRE ATT&CK layer for ATM jackpotting incident in Thailand, 2025. Main techniques are confirmed (red), sub-techniques are possible (orange) based on typical jackpotting methods.",
+  "description": "MITRE ATT&CK layer for ATM jackpotting incident in Thailand, 2025. Red for confirmed main techniques, orange for possible sub-techniques, green for ancillary techniques.",
   "domain": "enterprise-attack",
   "techniques": [
     {
       "techniqueID": "T1190",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Exploit ATM software/network vulnerabilities remotely.",
+      "comment": "Exploit ATM software or network vulnerabilities.",
       "enabled": true
     },
     {
       "techniqueID": "T1566",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Phishing to access bank networks for ATM control.",
+      "comment": "Phishing to access bank networks.",
       "enabled": true
     },
     {
       "techniqueID": "T1566.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible spearphishing with malicious attachments.",
+      "comment": "Possible spearphishing with attachments.",
       "enabled": true
     },
     {
       "techniqueID": "T1059",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Use scripts to issue cash dispense commands.",
+      "comment": "Scripts to control ATM cash dispensing.",
       "enabled": true
     },
     {
       "techniqueID": "T1059.003",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible use of Windows Command Shell for malware.",
+      "comment": "Possible Windows Command Shell for malware.",
       "enabled": true
     },
     {
       "techniqueID": "T1547",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Malware persistence on ATM reboot.",
+      "comment": "Malware persistence on ATM.",
       "enabled": true
     },
     {
       "techniqueID": "T1547.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible use of Registry Run Keys for persistence.",
+      "comment": "Possible Registry Run Keys for persistence.",
       "enabled": true
     },
     {
       "techniqueID": "T1068",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Switch ATM to supervisor mode for cash dispensing.",
+      "comment": "Switch ATM to supervisor mode.",
       "enabled": true
     },
     {
@@ -75,7 +75,7 @@
       "techniqueID": "T1070.004",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible deletion of logs or malware files.",
+      "comment": "Possible deletion of logs or files.",
       "enabled": true
     },
     {
@@ -89,33 +89,47 @@
       "techniqueID": "T1564.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible hiding of malware files or camera tampering.",
+      "comment": "Possible hiding of files or camera tampering.",
       "enabled": true
     },
     {
       "techniqueID": "T1071",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Black-box devices communicate with attackers.",
+      "comment": "Black-box device communication.",
       "enabled": true
     },
     {
       "techniqueID": "T1071.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible use of HTTP/HTTPS for black-box communication.",
+      "comment": "Possible HTTP/HTTPS for black-box C2.",
       "enabled": true
     },
     {
       "techniqueID": "T1491",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Display 'Out of Service' to avoid suspicion.",
+      "comment": "Display 'Out of Service' on ATM.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1119",
+      "score": 60,
+      "color": "#00ff00",
+      "comment": "Ancillary: Collect transaction or cardholder data.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1485",
+      "score": 60,
+      "color": "#00ff00",
+      "comment": "Ancillary: Corrupt ATM logs or software.",
       "enabled": true
     }
   ],
   "gradient": {
-    "colors": ["#ff9999", "#ff0000"],
+    "colors": ["#ff9999", "#ff0000", "#ff9900", "#00ff00"],
     "minValue": 0,
     "maxValue": 100
   },
@@ -127,6 +141,10 @@
     {
       "color": "#ff9900",
       "label": "Possible (Sub-Techniques)"
+    },
+    {
+      "color": "#00ff00",
+      "label": "Ancillary Techniques"
     }
   ]
 }
