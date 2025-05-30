@@ -5,114 +5,128 @@
     "navigator": "4.9",
     "layer": "4.5"
   },
-  "description": "MITRE ATT&CK layer for ATM jackpotting incident investigated by Thai Cyber Police, 2025. Sub-techniques are marked as possible (score 80) based on typical ATM jackpotting methods (malware, black-box devices) due to limited details in the source article.",
+  "description": "MITRE ATT&CK layer for ATM jackpotting incident in Thailand, 2025. Main techniques are confirmed (red), sub-techniques are possible (orange) based on typical jackpotting methods.",
   "domain": "enterprise-attack",
   "techniques": [
     {
       "techniqueID": "T1190",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Exploiting vulnerabilities in ATM software or network interfaces remotely, a common initial access method in jackpotting.",
+      "comment": "Exploit ATM software/network vulnerabilities remotely.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Phishing to access bank networks for ATM control.",
       "enabled": true
     },
     {
       "techniqueID": "T1566.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible use of spearphishing attachments to compromise bank networks, enabling remote ATM access (seen in similar attacks like Cosmos heist).",
+      "comment": "Possible spearphishing with malicious attachments.",
       "enabled": true
     },
     {
-      "techniqueID": "T1566.002",
-      "score": 80,
-      "color": "#ff9900",
-      "comment": "Possible use of spearphishing links to deliver malware to bank employees, facilitating network access to ATMs.",
+      "techniqueID": "T1059",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Use scripts to issue cash dispense commands.",
       "enabled": true
     },
     {
       "techniqueID": "T1059.003",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible use of Windows Command Shell by malware (e.g., Ploutus.D, Tyupkin) to issue cash dispense commands on Windows-based ATMs.",
+      "comment": "Possible use of Windows Command Shell for malware.",
       "enabled": true
     },
     {
-      "techniqueID": "T1059.005",
-      "score": 80,
-      "color": "#ff9900",
-      "comment": "Possible use of Visual Basic scripts by malware to control ATM operations, common in jackpotting malware.",
+      "techniqueID": "T1547",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Malware persistence on ATM reboot.",
       "enabled": true
     },
     {
       "techniqueID": "T1547.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible addition of malware to Registry Run Keys or Startup Folder for persistence on ATM reboot.",
+      "comment": "Possible use of Registry Run Keys for persistence.",
       "enabled": true
     },
     {
       "techniqueID": "T1068",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Switching ATM to supervisor mode to control cash dispensers, a core jackpotting technique.",
+      "comment": "Switch ATM to supervisor mode for cash dispensing.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Remove logs or evidence from ATM.",
       "enabled": true
     },
     {
       "techniqueID": "T1070.004",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible deletion of logs or malware files to remove evidence from ATM systems.",
+      "comment": "Possible deletion of logs or malware files.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1564",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Hide malware or block ATM cameras.",
       "enabled": true
     },
     {
       "techniqueID": "T1564.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible hiding of malware files or use of mineral oil/wax to block ATM cameras to conceal activities.",
+      "comment": "Possible hiding of malware files or camera tampering.",
       "enabled": true
     },
     {
-      "techniqueID": "T1119",
-      "score": 80,
-      "color": "#ff9900",
-      "comment": "Possible automated collection of transaction logs or cardholder data, though primary goal is cash dispensing.",
+      "techniqueID": "T1071",
+      "score": 100,
+      "color": "#ff0000",
+      "comment": "Black-box devices communicate with attackers.",
       "enabled": true
     },
     {
       "techniqueID": "T1071.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Possible use of HTTP/HTTPS by black-box devices to communicate with attackers’ smartphones or servers.",
-      "enabled": true
-    },
-    {
-      "techniqueID": "T1485",
-      "score": 80,
-      "color": "#ff9900",
-      "comment": "Possible corruption of ATM logs or software to cover tracks, common in jackpotting attacks.",
+      "comment": "Possible use of HTTP/HTTPS for black-box communication.",
       "enabled": true
     },
     {
       "techniqueID": "T1491",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Displaying 'Out of Service' on ATM screens to avoid suspicion during attacks, a confirmed tactic in jackpotting.",
+      "comment": "Display 'Out of Service' to avoid suspicion.",
       "enabled": true
     }
   ],
   "gradient": {
-    "colors": ["#ff6666", "#ff0000"],
+    "colors": ["#ff9999", "#ff0000"],
     "minValue": 0,
     "maxValue": 100
   },
   "legendItems": [
     {
       "color": "#ff0000",
-      "label": "Confirmed Technique"
+      "label": "Confirmed (Main Techniques)"
     },
     {
       "color": "#ff9900",
-      "label": "Possible Technique/Sub-Technique"
+      "label": "Possible (Sub-Techniques)"
     }
   ]
 }
