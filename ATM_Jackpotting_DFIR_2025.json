@@ -5,84 +5,84 @@
     "navigator": "4.9",
     "layer": "4.5"
   },
-  "description": "MITRE ATT&CK layer for ATM jackpotting incident investigated by Thai Cyber Police, 2025. Based on reported techniques involving physical access, malware (e.g., Ploutus.D), and black-box devices.",
+  "description": "MITRE ATT&CK layer for ATM jackpotting incident investigated by Thai Cyber Police, 2025. Includes sub-techniques for detailed DFIR analysis based on typical jackpotting methods (malware, black-box devices).",
   "domain": "enterprise-attack",
   "techniques": [
     {
       "techniqueID": "T1190",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Attackers may exploit vulnerabilities in ATM software or network interfaces remotely, as seen in some jackpotting cases (e.g., Diebold Nixdorf attacks).",
+      "comment": "Exploit vulnerabilities in ATM software or network interfaces remotely (e.g., Diebold Nixdorf vulnerabilities).",
       "enabled": true
     },
     {
-      "techniqueID": "T1566",
+      "techniqueID": "T1566.001",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Phishing emails used to compromise bank networks, enabling remote ATM access (e.g., Cosmos heist).",
+      "comment": "Spearphishing attachments used to compromise bank networks, enabling remote ATM access (e.g., Cosmos heist).",
       "enabled": true
     },
     {
-      "techniqueID": "T1059",
+      "techniqueID": "T1059.003",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Malware like Ploutus.D or Tyupkin uses command-line interfaces or scripts to issue cash dispense commands via ATM pin pad or software.",
+      "comment": "Windows Command Shell used by malware (e.g., Ploutus.D, Tyupkin) to issue cash dispense commands on Windows-based ATMs.",
       "enabled": true
     },
     {
-      "techniqueID": "T1547",
+      "techniqueID": "T1547.001",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Malware may modify ATM boot processes for persistence, though specific evidence in Thai case is unclear.",
+      "comment": "Malware may add itself to Registry Run Keys or Startup Folder for persistence on ATM reboot.",
       "enabled": true
     },
     {
       "techniqueID": "T1068",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Attackers switch ATMs to supervisor mode to gain control over cash dispensers, a common jackpotting technique.",
+      "comment": "Switching ATM to supervisor mode to control cash dispensers, a core jackpotting technique.",
       "enabled": true
     },
     {
-      "techniqueID": "T1070",
+      "techniqueID": "T1070.004",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Attackers remove evidence by disconnecting black-box devices or clearing logs to avoid detection.",
+      "comment": "Attackers delete logs or malware files to remove evidence from ATM systems.",
       "enabled": true
     },
     {
-      "techniqueID": "T1564",
+      "techniqueID": "T1564.001",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Use of mineral oil or wax to block ATM cameras or tampering with logs to hide attack activities.",
+      "comment": "Hiding malware files or using mineral oil/wax to block ATM cameras to conceal activities.",
       "enabled": true
     },
     {
       "techniqueID": "T1119",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Malware may collect transaction logs or cardholder data, though primary goal is cash dispensing.",
+      "comment": "Automated collection of transaction logs or cardholder data, though primary goal is cash dispensing.",
       "enabled": true
     },
     {
-      "techniqueID": "T1071",
+      "techniqueID": "T1071.001",
       "score": 100,
       "color": "#ff0000",
-      "comment": "Black-box devices communicate with attackers’ smartphones or servers to control ATM cash dispensers remotely.",
+      "comment": "Black-box devices use HTTP/HTTPS to communicate with attackers’ smartphones or servers.",
       "enabled": true
     },
     {
       "techniqueID": "T1485",
       "score": 80,
       "color": "#ff9900",
-      "comment": "Malware may corrupt ATM logs or software to cover tracks, though not explicitly reported in Thai case.",
+      "comment": "Malware may corrupt ATM logs or software to cover tracks.",
       "enabled": true
     },
     {
       "techniqueID": "T1491",
       "score": 100,
       "color": "#ff0000",
-      "comment": "ATMs display 'Out of Service' to avoid suspicion during jackpotting attacks.",
+      "comment": "Displaying 'Out of Service' on ATM screens to avoid suspicion during attacks.",
       "enabled": true
     }
   ],
@@ -94,11 +94,11 @@
   "legendItems": [
     {
       "color": "#ff0000",
-      "label": "Confirmed Technique"
+      "label": "Confirmed Technique/Sub-Technique"
     },
     {
       "color": "#ff9900",
-      "label": "Possible Technique"
+      "label": "Possible Technique/Sub-Technique"
     }
   ]
 }
