@@ -1,0 +1,65 @@
+{
+  "name": "ATM Jackpotting DFIR 2025",
+  "version": "4.5",
+  "domain": "enterprise-attack",
+  "description": "MITRE ATT&CK layer for ATM Jackpotting incidents, designed for DFIR in 2025. Covers techniques used in attacks involving malware (e.g., Ploutus, Jackpot) and hardware (e.g., Black Box, SIM Card cable). Focuses on 2025 Thailand incident involving Bulgarian suspect 'Ivan' using 'Jackpot' malware and SIM Card cable to disrupt internet signals and control ATMs ([Web:2], [X:0]), and US incidents in 2024 ([Web:13], [Web:22]). All techniques are sourced from referenced incidents or general ATM Jackpotting reports ([Web:6], [Web:7], [Web:15]).",
+  "techniques": [
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "color": "#ff0000",
+      "comment": "Use of stolen master keys or endoscopes for physical access to ATMs, observed in Thailand 2025 ([Web:2], [X:0]) and US 2024 ([Web:13], [Web:15])."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "color": "#ff0000",
+      "comment": "Malware (e.g., Ploutus.D, Jackpot) executes scripts to control cash dispenser via XFS API, as seen in Thailand 2025 with 'Jackpot' malware ([Web:2], [X:0]) and US 2024 with Ploutus.D ([Web:13], [Web:22])."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "color": "#ff0000",
+      "comment": "Malware communicates with C2 server via HTTP/HTTPS, used by groups like Carbanak and in US 2024 incidents ([Web:6], [Web:13], [Web:22])."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "color": "#0000ff",
+      "comment": "Use of SIM Card cable or Black Box for remote control and network disruption, observed in Thailand 2025 with 'Ivan' ([Web:2], [X:0]) and US 2024 ([Web:7], [Web:13], [Web:22])."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "color": "#0000ff",
+      "comment": "Remote control via SMS/Bluetooth, including potential Simjacker exploits, seen in Thailand 2025 ([Web:2], [Web:14], [X:0]) and US 2024 with Ploutus.D ([Web:20], [Web:22])."
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "color": "#0000ff",
+      "comment": "Disabling network communication to evade detection, including internet signal disruption via SIM Card cable in Thailand 2025 ([Web:2], [Web:9], [X:0])."
+    },
+    {
+      "techniqueID": "T1496",
+      "tactic": "impact",
+      "color": "#ff0000",
+      "comment": "Hijacking ATM to dispense cash (Jackpotting), observed in Thailand 2025 with 'Ivan' ([Web:2], [X:0]) and US 2024 ([Web:13], [Web:22])."
+    }
+  ],
+  "gradient": {
+    "colors": ["#ff6666", "#ff0000"],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "color": "#ff0000",
+      "label": "High-frequency technique"
+    },
+    {
+      "color": "#0000ff",
+      "label": "Network disruption technique"
+    }
+  ]
+}
